@@ -13,9 +13,12 @@
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   <br />
 
+  <%= f.fields_for :notes do |notes_form|%>
 
-  <%= f.fields_for :notes_attributes, :index => :notes do |notes_form|%>
-    Content: <%= notes_form.text_field :content%>
+    <%= notes_form.label :content%>
+    <%= notes_form.text_field :content %>
+    <br />
+    
   <% end %>
   
   <%= f.submit %>
